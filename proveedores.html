@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proveedores – Servicios Asuncion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0f14; --surface: #161a23; --card: #1c2130;
+      --accent: #f5a623; --text: #f0eee8; --muted: #7a8099; --border: #2a2f3e;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 48px; background: rgba(13,15,20,.92);
+      backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); z-index: 10;
+    }
+    nav strong a { font-family: 'Syne', sans-serif; font-size: 1.4rem; color: var(--accent); text-decoration: none; }
+    nav strong a span { color: var(--text); }
+    nav ul { display: flex; gap: 24px; list-style: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; }
+    nav a:hover { color: var(--accent); }
+
+    /* HEADER */
+    header {
+      padding: 110px 48px 40px;
+      background: linear-gradient(180deg, rgba(245,166,35,.06) 0%, transparent 100%);
+    }
+    header h1 { font-family: 'Syne', sans-serif; font-size: clamp(2rem,5vw,3rem); font-weight: 800; letter-spacing: -1.5px; }
+    header h1 span { color: var(--accent); }
+    header p { color: var(--muted); margin-top: 8px; }
+
+    /* FILTERS (CSS only con :target) */
+    .filtros {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      padding: 0 48px 28px; max-width: 1200px; margin: 0 auto;
+    }
+    .filtros a {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--muted); padding: 9px 18px; border-radius: 100px;
+      text-decoration: none; font-size: .85rem; font-weight: 600; transition: all .2s;
+    }
+    .filtros a:hover, .filtros a.on { border-color: var(--accent); color: var(--accent); background: rgba(245,166,35,.08); }
+
+    /* GRID */
+    main { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
+    ul.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; list-style: none; }
+
+    /* CARD */
+    article.card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+    article.card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(0,0,0,.45); }
+
+    figure {
+      height: 150px; margin: 0; background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.2rem; position: relative;
+    }
+    figure mark {
+      position: absolute; top: 10px; right: 10px;
+      background: var(--accent); color: #0d0f14;
+      font-size: .68rem; font-weight: 700; padding: 3px 9px; border-radius: 100px;
+    }
+    figure mark.nd { background: #4b5563; left: 10px; right: auto; }
+
+    .body { padding: 18px; }
+    .row { display: flex; justify-content: space-between; align-items: flex-start; }
+    .row h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; }
+    .row p.cat { color: var(--accent); font-size: .76rem; font-weight: 600; margin-top: 2px; }
+    .stars { color: var(--accent); font-size: .82rem; }
+    .stars b { color: var(--text); }
+    .stars small { color: var(--muted); }
+    .meta { color: var(--muted); font-size: .82rem; margin-top: 9px; line-height: 1.6; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+    .tags span { background: var(--surface); border: 1px solid var(--border); color: var(--muted); padding: 2px 9px; border-radius: 100px; font-size: .74rem; }
+
+    .btns { display: flex; gap: 8px; margin-top: 14px; }
+    .btns a {
+      flex: 1; padding: 10px; border-radius: 10px;
+      font-size: .82rem; font-weight: 600; text-align: center; text-decoration: none; transition: all .2s;
+    }
+    .call { background: rgba(245,166,35,.12); color: var(--accent); border: 1px solid rgba(245,166,35,.28); }
+    .call:hover { background: var(--accent); color: #0d0f14; }
+    .wp { background: rgba(37,211,102,.1); color: #25d366; border: 1px solid rgba(37,211,102,.25); }
+    .wp:hover { background: #25d366; color: #fff; }
+
+    /* ADD FORM */
+    section#agregar { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
+    section#agregar h2 { font-family: 'Syne', sans-serif; font-size: 1.7rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 6px; }
+    section#agregar > p { color: var(--muted); margin-bottom: 24px; }
+    form {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 660px;
+    }
+    form .full { grid-column: 1/-1; }
+    label { display: flex; flex-direction: column; gap: 6px; font-size: .8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+    input, select, textarea {
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); padding: 12px 14px; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: .9rem; outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+    textarea { resize: vertical; min-height: 85px; }
+    button[type=submit] {
+      grid-column: 1/-1; padding: 15px; background: var(--accent); color: #0d0f14;
+      border: none; border-radius: 12px; font-weight: 700; font-size: .97rem;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+    }
+    button[type=submit]:hover { opacity: .87; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 48px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    footer p { color: var(--muted); font-size: .83rem; }
+    footer ul { display: flex; gap: 20px; list-style: none; }
+    footer ul a { color: var(--muted); font-size: .83rem; text-decoration: none; }
+    footer ul a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      nav, header, .filtros, main, section#agregar { padding-left: 20px; padding-right: 20px; }
+      form { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <strong><a href="index.html">Servicios<span>Asuncion</span></a></strong>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="proveedores.html">Proveedores</a></li>
+    <li><a href="como-funciona.html">Cómo funciona?</a></li>
+    <li><a href="#agregar">Registrarme</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1>Proveedores de <span>Servicios en Asunción</span></h1>
+</header>
+
+<!-- Filtros por categoria -->
+<div class="filtros">
+  <a href="proveedores.html">Todos</a>
+  <a href="#plomeria">🔧 Plomería</a>
+  <a href="#electricidad">⚡ Electricidad</a>
+  <a href="#pintura">🎨 Pintura</a>
+</div>
+
+<main>
+
+  <!-- Plomeria -->
+  <h2 id="plomeria" style="font-family:'Syne',sans-serif; font-size:1.1rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:16px; padding-top:8px;">🔧 Plomeria</h2>
+  <ul class="grid" style="margin-bottom:48px;">
+    <li>
+      <article class="card">
+        <figure>🔧<mark>TOP ★</mark></figure>
+        <div class="body">
+          <div class="row">
+            <div><h3>Carlos Mendoza</h3><p class="cat">Plomeria</p></div>
+            <p class="stars">★★★★★ <b>4.9</b> <small>(127)</small></p>
+          </div>
+          <p class="meta">📍 Villa Morra · 15 años de exp.</p>
+          <div class="tags"><span>Urgencias</span><span>Cañerias</span></div>
+          <div class="btns">
+            <a href="tel:+595981100001" class="call">📞 Llamar</a>
+          </div>
+        </div>
+      </article>
+    </li>
+    <li>
+      <article class="card">
+        <figure>🔧</figure>
+        <div class="body">
+          <div class="row">
+            <div><h3>Juan Carlos</h3><p class="cat">Plomería</p></div>
+            <p class="stars">★★★★☆ <b>4.3</b> <small>(38)</small></p>
+          </div>
+          <p class="meta">📍 Lambaré · 7 años de exp. · Urgencias 24/7</p>
+          <div class="tags"><span>24/7</span><span>Urgencias</span></div>
+          <div class="btns">
+            <a href="tel:+595981100009" class="call">📞 Llamar</a>          </div>
+        </div>
+      </article>
+    </li>
+  </ul>
+
+  <!--Electricidad-->
+  <h2 id="electricidad" style="font-family:'Syne',sans-serif; font-size:1.1rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:16px; padding-top:8px;">⚡ Electricidad</h2>
+  <ul class="grid" style="margin-bottom:48px;">
+    <li>
+      <article class="card">
+        <figure>⚡<mark style="background:#2dd4bf">NUEVA</mark></figure>
+        <div class="body">
+          <div class="row">
+            <div><h3>Ramona Torres</h3><p class="cat">Electricidad</p></div>
+            <p class="stars">★★★★★ <b>4.8</b> <small>(89)</small></p>
+          </div>
+          <p class="meta">📍 Mariscal López · 10 años de exp. · Certificada</p>
+          <div class="tags"><span>Certificada</span><span>Tableros</span></div>
+          <div class="btns">
+            <a href="tel:+595981100002" class="call">📞 Llamar</a>
+          </div>
+        </div>
+      </article>
+    </li>
+    <li>
+      <article class="card">
+        <figure>⚡</figure>
+        <div class="body">
+          <div class="row">
+            <div><h3>Juan Mata</h3><p class="cat">Electricidad</p></div>
+            <p class="stars">★★★★★ <b>4.7</b> <small>(61)</small></p>
+          </div>
+          <p class="meta">📍 San Lorenzo · 14 años de exp. · ANDE habilitado</p>
+          <div class="tags"><span>Industrial</span><span>ANDE</span></div>
+          <div class="btns">
+            <a href="tel:+595981100010" class="call">📞 Llamar</a>
+          </div>
+        </div>
+      </article>
+    </li>
+  </ul>
+
+  <!--Pintura-->
+  <h2 id="pintura" style="font-family:'Syne',sans-serif; font-size:1.1rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:16px; padding-top:8px;">🎨 Pintura</h2>
+  <ul class="grid" style="margin-bottom:48px;">
+    <li>
+      <article class="card">
+        <figure>🎨<mark>TOP ★</mark></figure>
+        <div class="body">
+          <div class="row">
+            <div><h3>Picasso</h3><p class="cat">Pintura</p></div>
+            <p class="stars">★★★★★ <b>4.9</b> <small>(47)</small></p>
+          </div>
+          <p class="meta">📍 Centro · 11 años de exp. · Murales y fachadas</p>
+          <div class="tags"><span>Murales</span><span>Fachadas</span></div>
+          <div class="btns">
+            <a href="tel:+595981100012" class="call">📞 Llamar</a>
+          </div>
+        </div>
+      </article>
+    </li>
+    <li>
+      <article class="card">
+        <figure>🎨</figure>
+        <div class="body">
+          <div class="row">
+            <div><h3>Adolf</h3><p class="cat">Pintura</p></div>
+            <p class="stars">★★★★☆ <b>4.6</b> <small>(64)</small></p>
+          </div>
+          <p class="meta">📍 San Lorenzo · 8 años de exp.</p>
+          <div class="tags"><span>Interior</span><span>Exterior</span></div>
+          <div class="btns">
+            <a href="tel:+595981100003" class="call">📞 Llamar</a>
+          </div>
+        </div>
+      </article>
+    </li>
+  </ul>
+
+  
+
+</main>
+
+<!--Formulario de Registro-->
+<section id="agregar">
+  <h2>Sos proveedor?</h2>
+  <p>Registra tu servicio gratis</p>
+  <form action="mailto:hola@serviasuncion.com.py" method="get" enctype="text/plain">
+    <label class="full">
+      Nombre completo
+      <input type="text" name="nombre" placeholder="Ej: Camilo Rodriguez" required />
+    </label>
+    <label>
+      Categoria
+      <select name="categoria" required>
+        <option value="">Selecciona</option>
+        <option>Plomeria</option>
+        <option>Electricidad</option>
+        <option>Pintura</option>
+      </select>
+    </label>
+    <label>
+      Telefono
+      <input type="tel" name="telefono" placeholder="+595 9XX XXX XXX" required />
+    </label>
+    <label>
+      Zona
+      <input type="text" name="zona" placeholder="Ej: Villa Morra" />
+    </label>
+    <label class="full">
+      Descripcion breve
+      <textarea name="descripcion" placeholder="Tu experiencia y especialidad"></textarea>
+    </label>
+    <button type="submit">Enviar solicitud</button>
+  </form>
+</section>
+
+<footer>
+  <strong><a href="index.html" style="font-family:'Syne',sans-serif;color:var(--accent);text-decoration:none">Servicios<span style="color:var(--text)">Asuncion</span></a></strong>
+  <p>© 2025 Servicios Asuncion · Paraguay 🇵🇾</p>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="como-funciona.html">Como funciona?</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
