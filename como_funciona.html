@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como funciona?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0d0f14; --surface:#161a23; --card:#1c2130; --accent:#f5a623; --accent2:#e8503a; --text:#f0eee8; --muted:#7a8099; --border:#2a2f3e; }
+    body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); }
+
+    nav { position:fixed; top:0; width:100%; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:16px 48px; background:rgba(13,15,20,.9); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+    nav strong a { font-family:'Syne',sans-serif; font-size:1.4rem; color:var(--accent); text-decoration:none; }
+    nav strong a span { color:var(--text); }
+    nav ul { display:flex; gap:24px; list-style:none; }
+    nav a { color:var(--muted); text-decoration:none; font-size:.92rem; font-weight:500; transition:color .2s; }
+    nav a:hover, nav a.on { color:var(--accent); }
+    .ham { display:none; background:none; border:none; font-size:1.5rem; color:var(--text); cursor:pointer; }
+    .mob { display:none; position:fixed; inset:0; background:var(--bg); z-index:99; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+    .mob.open { display:flex; }
+    .mob a { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--text); text-decoration:none; }
+    .mob button { position:absolute; top:24px; right:24px; background:none; border:none; font-size:1.8rem; color:var(--text); cursor:pointer; }
+
+    /* HERO */
+    header {
+      min-height:60vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:120px 24px 72px;
+      background:radial-gradient(ellipse 70% 70% at 50% 0%,rgba(245,166,35,.1) 0%,transparent 70%);
+    }
+    header p.tag { display:inline-block; background:rgba(232,80,58,.1); color:var(--accent2); border:1px solid rgba(232,80,58,.2); padding:4px 14px; border-radius:100px; font-size:.73rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px; }
+    header h1 { font-family:'Syne',sans-serif; font-size:clamp(2.4rem,7vw,5rem); font-weight:800; letter-spacing:-2px; line-height:1.05; }
+    header h1 span { color:var(--accent); }
+    header > p { color:var(--muted); max-width:500px; margin:18px auto 0; font-size:1rem; line-height:1.75; }
+
+    /* SHARED */
+    .wrap { max-width:1100px; margin:0 auto; padding:0 48px; }
+    .stag { display:inline-block; background:rgba(232,80,58,.1); color:var(--accent2); border:1px solid rgba(232,80,58,.2); padding:4px 12px; border-radius:100px; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px; }
+    h2.sh { font-family:'Syne',sans-serif; font-size:clamp(1.8rem,4vw,2.7rem); font-weight:800; letter-spacing:-1px; margin-bottom:40px; }
+    h2.sh span { color:var(--accent); }
+
+    /* STEPS */
+    section.steps { padding:80px 0; }
+    ol.timeline { list-style:none; position:relative; margin-top:56px; }
+    ol.timeline::before { content:''; position:absolute; left:38px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--accent),transparent); }
+    ol.timeline > li { display:flex; gap:36px; margin-bottom:56px; }
+    ol.timeline > li > b { flex-shrink:0; width:76px; display:flex; justify-content:center; }
+    ol.timeline > li > b em { width:48px; height:48px; border-radius:50%; background:var(--accent); color:#0d0f14; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:1rem; font-style:normal; position:relative; z-index:1; flex-shrink:0; }
+    ol.timeline > li > article { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:26px; flex:1; }
+    ol.timeline > li > article i { font-size:2.2rem; font-style:normal; display:block; margin-bottom:10px; }
+    ol.timeline > li > article h3 { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:800; margin-bottom:9px; }
+    ol.timeline > li > article p { color:var(--muted); font-size:.91rem; line-height:1.75; }
+    ol.timeline > li > article aside { margin-top:14px; background:rgba(245,166,35,.07); border-left:3px solid var(--accent); padding:11px 14px; border-radius:0 8px 8px 0; color:var(--muted); font-size:.83rem; line-height:1.6; }
+    ol.timeline > li > article aside strong { color:var(--accent); }
+
+    /* TRUST */
+    section.trust { padding:80px 0; }
+    ul.trust-grid { list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:18px; margin-top:40px; }
+    ul.trust-grid li { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:26px 22px; text-align:center; }
+    ul.trust-grid li i { font-size:1.9rem; font-style:normal; display:block; margin-bottom:12px; }
+    ul.trust-grid li strong { display:block; font-family:'Syne',sans-serif; font-weight:700; margin-bottom:7px; }
+    ul.trust-grid li p { color:var(--muted); font-size:.83rem; line-height:1.6; }
+
+    /* TIPS */
+    div.tips { background:var(--surface); padding:80px 0; }
+    ul.tips-grid { list-style:none; display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:18px; margin-top:40px; }
+    ul.tips-grid li { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; }
+    ul.tips-grid li mark { display:inline-block; padding:3px 10px; border-radius:100px; font-size:.69rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin-bottom:12px; background:none; }
+    .do { background:rgba(45,212,191,.1); color:#2dd4bf; border:1px solid rgba(45,212,191,.22); }
+    .dont { background:rgba(232,80,58,.1); color:var(--accent2); border:1px solid rgba(232,80,58,.22); }
+    ul.tips-grid li h4 { font-family:'Syne',sans-serif; font-weight:700; margin-bottom:7px; }
+    ul.tips-grid li p { color:var(--muted); font-size:.86rem; line-height:1.65; }
+
+    /* FAQ */
+    section.faq { padding:80px 0; }
+    ul.faq-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:40px; }
+    ul.faq-list li { background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+    ul.faq-list li button { width:100%; text-align:left; background:none; border:none; color:var(--text); padding:20px 22px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:.93rem; display:flex; justify-content:space-between; align-items:center; cursor:pointer; transition:color .2s; }
+    ul.faq-list li button:hover { color:var(--accent); }
+    ul.faq-list li button span { transition:transform .3s; }
+    ul.faq-list li button.open span { transform:rotate(45deg); }
+    ul.faq-list li p { max-height:0; overflow:hidden; transition:max-height .35s ease; padding:0 22px; color:var(--muted); font-size:.88rem; line-height:1.75; }
+    ul.faq-list li p.open { max-height:200px; padding-bottom:18px; }
+
+    /* CTA */
+    section.cta { padding:88px 24px; text-align:center; }
+    section.cta h2 { font-family:'Syne',sans-serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:800; letter-spacing:-1.5px; margin-bottom:16px; }
+    section.cta p { color:var(--muted); max-width:420px; margin:0 auto 36px; line-height:1.7; }
+    nav.cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .btn { padding:14px 32px; border-radius:100px; text-decoration:none; font-weight:700; font-size:.95rem; transition:all .2s; display:inline-block; }
+    .primary { background:var(--accent); color:#0d0f14; }
+    .primary:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(245,166,35,.35); }
+    .outline { border:1px solid var(--border); color:var(--text); }
+    .outline:hover { border-color:var(--accent); color:var(--accent); }
+
+    footer { border-top:1px solid var(--border); padding:36px 48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    footer strong a { font-family:'Syne',sans-serif; color:var(--accent); text-decoration:none; font-size:1.1rem; }
+    footer strong a span { color:var(--text); }
+    footer p { color:var(--muted); font-size:.83rem; }
+    footer ul { display:flex; gap:20px; list-style:none; }
+    footer ul a { color:var(--muted); font-size:.83rem; text-decoration:none; }
+    footer ul a:hover { color:var(--accent); }
+
+    @media(max-width:768px){
+      nav{padding:16px 20px} nav ul{display:none} .ham{display:block}
+      .wrap{padding:0 20px} ul.faq-list{grid-template-columns:1fr}
+      ol.timeline::before{left:24px} ol.timeline > li > b{width:48px}
+      ol.timeline > li > b em{width:38px;height:38px;font-size:.85rem}
+      footer{padding:24px 20px;flex-direction:column;text-align:center}
+    }
+    </style>
+</head>
+<body>
+
+<nav>
+  <strong><a href="index.html">Servicios <span>Asuncion</span></a></strong>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="proveedores.html">Proveedores</a></li>
+    <li><a href="como_funciona.html" class="on">Como funciona?</a></li>
+    <li><a href="proveedores.html#agregar">Registrarme</a></li>
+  </ul>
+  <button class="ham" onclick="document.querySelector('.mob').classList.toggle('open')">☰</button>
+</nav>
+
+<nav class="mob">
+  <button onclick="document.querySelector('.mob').classList.remove('open')">✕</button>
+  <a href="index.html">Inicio</a>
+  <a href="proveedores.html">Proveedores</a>
+  <a href="como_funciona.html">Como funciona?</a>
+</nav>
+
+<header>
+  <p class="tag">Guia completa</p>
+  <p>Todo lo que necesitas saber para encontrar, contratar y calificar proveedores</p>
+</header>
+
+<section class="steps">
+  <div class="wrap">
+    <p class="stag">El proceso</p>
+    <h2 class="sh">Como usar Servicios Asuncion</h2>
+    <ol class="timeline">
+      <li>
+        <b><em>1</em></b>
+        <article><i>🔍</i><h3>Busca el servicio que necesitas</h3><p>Usa el buscador o navega por categorias</p></article>
+      </li>
+      <li>
+        <b><em>2</em></b>
+          <article><i>📊</i><h3>Compara calificaciones y reseñas</h3><p>Cada perfil tiene su calificacion promedio, cantidad de reseñas y comentarios de personas</p></article>
+      </li>
+      <li>
+        <b><em>3</em></b>
+          <article><i>📞</i><h3>Llamas directo sin intermediarios</h3><p>Marcas directamen al proveedor</p></article>
+      </li>
+      <li>
+        <b><em>4</em></b>
+          <article><i>⭐</i><h3>Calificas y ayudas a la comunidad</h3><p>Deja tu reseña. Tu opinion ayuda a todos los vecinos de Asuncion</p></article>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <strong> Servicio <span> Asuncion</span></strong>
+  <p>© 2026 ServicosAsuncion</p>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="proveedores.html">Proveedores</a></li>
+    <li><a href="como_funciona.html">Como funciona?</a></li>
+  </ul>
+</footer> 
+
+<script>
+  function faq(btn){
+    const p=btn.nextElementSibling;
+    const open=p.classList.contains('open');
+    document.querySelectorAll('.faq-list p').forEach(x=>x.classList.remove('open'));
+    document.querySelectorAll('.faq-list button').forEach(x=>x.classList.remove('open'));
+    if(!open){ p.classList.add('open'); btn.classList.add('open'); }
+  }
+</script>
+
+</body>
+</html>
