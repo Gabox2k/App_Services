@@ -39,7 +39,7 @@ No hay dependencias npm ni build steps. Todo es HTML + CSS + JS vanilla.
 ## Despliegue
 
 ### Netlify (recomendado)
-1. Subí la carpeta a [netlify.com/drop](https://netlify.com/drop) arrastrando la carpeta
+1. Esta subido en github pages: https://gabox2k.github.io/App_Services/
 2. O conectá tu repo de GitHub → "New site from Git"
 3. Build command: *(vacío)* · Publish directory: `.` (raíz)
 
