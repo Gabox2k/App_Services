@@ -142,7 +142,7 @@
   <ul>
     <li><a href="index.html">Inicio</a></li>
     <li><a href="proveedores.html">Proveedores</a></li>
-    <li><a href="como-funciona.html">Cómo funciona?</a></li>
+    <li><a href="como_funciona.html">Cómo funciona?</a></li>
     <li><a href="#agregar">Registrarme</a></li>
   </ul>
 </nav>
@@ -151,6 +151,8 @@
   <h1>Proveedores de <span>Servicios en Asunción</span></h1>
 </header>
 
+
+<main>
 <!-- Filtros por categoria -->
 <div class="filtros">
   <a href="proveedores.html">Todos</a>
@@ -159,120 +161,12 @@
   <a href="#pintura">🎨 Pintura</a>
 </div>
 
-<main>
 
-  <!-- Plomeria -->
-  <h2 id="plomeria" style="font-family:'Syne',sans-serif; font-size:1.1rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:16px; padding-top:8px;">🔧 Plomeria</h2>
-  <ul class="grid" style="margin-bottom:48px;">
-    <li>
-      <article class="card">
-        <figure>🔧<mark>TOP ★</mark></figure>
-        <div class="body">
-          <div class="row">
-            <div><h3>Carlos Mendoza</h3><p class="cat">Plomeria</p></div>
-            <p class="stars">★★★★★ <b>4.9</b> <small>(127)</small></p>
-          </div>
-          <p class="meta">📍 Villa Morra · 15 años de exp.</p>
-          <div class="tags"><span>Urgencias</span><span>Cañerias</span></div>
-          <div class="btns">
-            <a href="tel:+595981100001" class="call">📞 Llamar</a>
-          </div>
-        </div>
-      </article>
-    </li>
-    <li>
-      <article class="card">
-        <figure>🔧</figure>
-        <div class="body">
-          <div class="row">
-            <div><h3>Juan Carlos</h3><p class="cat">Plomería</p></div>
-            <p class="stars">★★★★☆ <b>4.3</b> <small>(38)</small></p>
-          </div>
-          <p class="meta">📍 Lambaré · 7 años de exp. · Urgencias 24/7</p>
-          <div class="tags"><span>24/7</span><span>Urgencias</span></div>
-          <div class="btns">
-            <a href="tel:+595981100009" class="call">📞 Llamar</a>          </div>
-        </div>
-      </article>
-    </li>
-  </ul>
+  <!-- Contenedor dinámico de proveedores -->
+  <ul id="proveedores-grid" class="grid"></ul>
 
-  <!--Electricidad-->
-  <h2 id="electricidad" style="font-family:'Syne',sans-serif; font-size:1.1rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:16px; padding-top:8px;">⚡ Electricidad</h2>
-  <ul class="grid" style="margin-bottom:48px;">
-    <li>
-      <article class="card">
-        <figure>⚡<mark style="background:#2dd4bf">NUEVA</mark></figure>
-        <div class="body">
-          <div class="row">
-            <div><h3>Ramona Torres</h3><p class="cat">Electricidad</p></div>
-            <p class="stars">★★★★★ <b>4.8</b> <small>(89)</small></p>
-          </div>
-          <p class="meta">📍 Mariscal López · 10 años de exp. · Certificada</p>
-          <div class="tags"><span>Certificada</span><span>Tableros</span></div>
-          <div class="btns">
-            <a href="tel:+595981100002" class="call">📞 Llamar</a>
-          </div>
-        </div>
-      </article>
-    </li>
-    <li>
-      <article class="card">
-        <figure>⚡</figure>
-        <div class="body">
-          <div class="row">
-            <div><h3>Juan Mata</h3><p class="cat">Electricidad</p></div>
-            <p class="stars">★★★★★ <b>4.7</b> <small>(61)</small></p>
-          </div>
-          <p class="meta">📍 San Lorenzo · 14 años de exp. · ANDE habilitado</p>
-          <div class="tags"><span>Industrial</span><span>ANDE</span></div>
-          <div class="btns">
-            <a href="tel:+595981100010" class="call">📞 Llamar</a>
-          </div>
-        </div>
-      </article>
-    </li>
-  </ul>
-
-  <!--Pintura-->
-  <h2 id="pintura" style="font-family:'Syne',sans-serif; font-size:1.1rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:16px; padding-top:8px;">🎨 Pintura</h2>
-  <ul class="grid" style="margin-bottom:48px;">
-    <li>
-      <article class="card">
-        <figure>🎨<mark>TOP ★</mark></figure>
-        <div class="body">
-          <div class="row">
-            <div><h3>Picasso</h3><p class="cat">Pintura</p></div>
-            <p class="stars">★★★★★ <b>4.9</b> <small>(47)</small></p>
-          </div>
-          <p class="meta">📍 Centro · 11 años de exp. · Murales y fachadas</p>
-          <div class="tags"><span>Murales</span><span>Fachadas</span></div>
-          <div class="btns">
-            <a href="tel:+595981100012" class="call">📞 Llamar</a>
-          </div>
-        </div>
-      </article>
-    </li>
-    <li>
-      <article class="card">
-        <figure>🎨</figure>
-        <div class="body">
-          <div class="row">
-            <div><h3>Adolf</h3><p class="cat">Pintura</p></div>
-            <p class="stars">★★★★☆ <b>4.6</b> <small>(64)</small></p>
-          </div>
-          <p class="meta">📍 San Lorenzo · 8 años de exp.</p>
-          <div class="tags"><span>Interior</span><span>Exterior</span></div>
-          <div class="btns">
-            <a href="tel:+595981100003" class="call">📞 Llamar</a>
-          </div>
-        </div>
-      </article>
-    </li>
-  </ul>
-
-  
-
+  <!-- Mensajes de estado -->
+  <p id="estado" style="text-align:center; margin-top:40px; color: var(--muted); font-size:1rem;"></p>
 </main>
 
 <!--Formulario de Registro-->
@@ -317,6 +211,94 @@
     <li><a href="como_funciona.html">Como funciona?</a></li>
   </ul>
 </footer>
+
+<script>
+const proveedoresGrid = document.getElementById('proveedores-grid');
+const estado = document.getElementById('estado');
+const filtros = document.querySelectorAll('.filtros a');
+
+let proveedores = []; //Guarda a los proveedores 
+
+function generarEstrellas(rating){
+  const max = 5
+  let estrellas = ''
+  for (let i =1; i <=max; i++){
+    estrellas += i <= rating ? '★' : '☆'
+  }
+
+  return estrellas
+}
+
+//Mostrar a los proveedores segun el filtro
+function mostrarProveedores(categoria) {
+  let listaFiltrada = categoria && categoria !== 'Todos'
+    ? proveedores.filter(p => p.categoria.toLowerCase() === categoria.toLowerCase())
+    : proveedores;
+
+  if (!listaFiltrada.length) {
+    proveedoresGrid.innerHTML = '';
+    estado.textContent = "🚫 No hay proveedores disponibles";
+    return;
+  }
+
+  estado.textContent = ""; // Limpiar mensaje
+
+  proveedoresGrid.innerHTML = listaFiltrada.map(p => `
+    <li>
+      <article class="card">
+        <figure>${p.categoria === "Plomería" ? "🔧" : p.categoria === "Electricidad" ? "⚡" : "🎨"}${p.top ? '<mark>TOP ★</mark>' : ''}</figure>
+        <div class="body">
+          <div class="row">
+            <div><h3>${p.nombre}</h3><p class="cat">${p.categoria}</p></div>
+            <p class="stars">${generarEstrellas(p.rating)} <b>${p.rating}</b> <small>(${p.reviews})</small></p>
+          </div>
+          <p class="meta">📍 ${p.ubicacion}</p>
+          <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
+          <div class="btns">
+            <a href="tel:${p.telefono}" class="call">📞 Llamar</a>
+          </div>
+        </div>
+      </article>
+    </li>
+  `).join("");
+}
+
+// Cargar datos del JSON
+estado.textContent = "⏳ Cargando proveedores...";
+fetch('proveedores.json')
+  .then(res => {
+    if (!res.ok) throw new Error("No se pudo cargar el JSON");
+    return res.json();
+  })
+  .then(datos => {
+    proveedores = datos; // Guardamos todos los proveedores
+    mostrarProveedores('Todos'); // Mostrar todos al inicio
+  })
+  .catch(err => {
+    console.error(err);
+    estado.textContent = "❌ Error al cargar proveedores";
+  });
+
+// Eventos para los filtros
+filtros.forEach(f => {
+  f.addEventListener('click', e => {
+    e.preventDefault();
+
+    // Quitar clase 'on' de todos
+    filtros.forEach(btn => btn.classList.remove('on'));
+
+    // Activar el que se clickeó
+    f.classList.add('on');
+
+    // Obtener categoría
+    let categoria = f.textContent.replace(/🔧|⚡|🎨/g, '').trim();
+    if (categoria === "Todos") categoria = 'Todos';
+
+    mostrarProveedores(categoria);
+  });
+});
+</script>
+
 
 </body>
 </html>

@@ -288,7 +288,7 @@
         <figure>⚡<mark style="background:#2dd4bf;">NUEVA</mark></figure>
         <section>
           <header>
-            <div><h3>Ramiba Rodriguez</h3><p>Electricidad</p></div>
+            <div><h3>Ramina Rodriguez</h3><p>Electricidad</p></div>
             <p class="rating"><span class="s">★★★★★</span> <span class="n">4.8</span> <span class="c">(89)</span></p>
           </header>
           <p>📍 Mariscal López ·  10 años de exp.</p>
@@ -349,10 +349,11 @@
 
 <script>
   function buscar(e){
-    e.preventDefailt()
+    e.preventDefault()
     const q = document.getElementById('q').value.trim()
     if (q) location.href = 'proveedores.html?q=' + encodeURIComponent(q)
   }
 </script>
 <body>
 <html>
+
