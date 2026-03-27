@@ -219,6 +219,26 @@ const filtros = document.querySelectorAll('.filtros a');
 
 let proveedores = []; //Guarda a los proveedores 
 
+//Elimna al proveedor
+function eliminarProveedor(boton, telefono ,categoria){
+
+  //Elimina del array
+  proveedores = proveedores.filter(p => p.telefono !== telefono)
+
+  const targeta = boton.closest('li')
+  targeta.remove()
+
+  //Verificar si quedan proveedores
+  const quedan = proveedores.filter(p => p.categoria === categoria)
+
+  if(contador === 0){
+    estado.textContent= "🚫 No hay proveedores disponibles "
+  }
+}
+
+
+
+//Genera las estrellas
 function generarEstrellas(rating){
   const max = 5
   let estrellas = ''
@@ -255,7 +275,7 @@ function mostrarProveedores(categoria) {
           <p class="meta">📍 ${p.ubicacion}</p>
           <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
           <div class="btns">
-            <a href="tel:${p.telefono}" class="call">📞 Llamar</a>
+            <a href="tel:${p.telefono}" class="call" onclick="eliminarProveedor(this, '${p.telefono}' ,'${p.categoria}')">📞 Llamar</a>
           </div>
         </div>
       </article>
