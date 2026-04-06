@@ -173,7 +173,7 @@
 <section id="agregar">
   <h2>Sos proveedor?</h2>
   <p>Registra tu servicio gratis</p>
-  <form action="mailto:hola@serviasuncion.com.py" method="get" enctype="text/plain">
+  <form id="formProveedor">
     <label class="full">
       Nombre completo
       <input type="text" name="nombre" placeholder="Ej: Camilo Rodriguez" required />
@@ -231,7 +231,7 @@ function eliminarProveedor(boton, telefono ,categoria){
   //Verificar si quedan proveedores
   const quedan = proveedores.filter(p => p.categoria === categoria)
 
-  if(contador === 0){
+  if(quedan.length === 0){
     estado.textContent= "🚫 No hay proveedores disponibles "
   }
 }
@@ -285,7 +285,7 @@ function mostrarProveedores(categoria) {
 
 // Cargar datos del JSON
 estado.textContent = "⏳ Cargando proveedores...";
-fetch('proveedores.json')
+fetch('http://localhost:3000/proveedores')
   .then(res => {
     if (!res.ok) throw new Error("No se pudo cargar el JSON");
     return res.json();

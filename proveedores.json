@@ -5,32 +5,35 @@
     "rating": 4.9,
     "reviews": 127,
     "ubicacion": "Villa Morra",
-    "tags": ["Urgencias", "Cañerias"],
+    "tags": [
+      "Urgencias",
+      "Cañerias"
+    ],
     "telefono": "+595981100001",
     "top": true
   },
-
   {
     "nombre": "Romina Rodriguez",
     "categoria": "Electricidad",
     "rating": 4.8,
     "reviews": 89,
     "ubicacion": "Mariscal López",
-    "tags": ["Nueva"],
+    "tags": [
+      "Nueva"
+    ],
     "telefono": "+595981100002",
     "top": false
   },
-  
   {
     "nombre": "Adolf",
     "categoria": "Pintura",
     "rating": 3.9,
     "reviews": 96,
     "ubicacion": "Mariscal López",
-    "tags": ["12 años de experiencia"],
+    "tags": [
+      "12 años de experiencia"
+    ],
     "telefono": "+595981102012",
     "top": false
   }
-
-  
 ]
