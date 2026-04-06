@@ -285,7 +285,7 @@ function mostrarProveedores(categoria) {
 
 // Cargar datos del JSON
 estado.textContent = "⏳ Cargando proveedores...";
-fetch('http://localhost:3000/proveedores')
+fetch("proveedores.json")
   .then(res => {
     if (!res.ok) throw new Error("No se pudo cargar el JSON");
     return res.json();
