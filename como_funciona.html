@@ -169,16 +169,5 @@
     <li><a href="como_funciona.html">Como funciona?</a></li>
   </ul>
 </footer> 
-
-<script>
-  function faq(btn){
-    const p=btn.nextElementSibling;
-    const open=p.classList.contains('open');
-    document.querySelectorAll('.faq-list p').forEach(x=>x.classList.remove('open'));
-    document.querySelectorAll('.faq-list button').forEach(x=>x.classList.remove('open'));
-    if(!open){ p.classList.add('open'); btn.classList.add('open'); }
-  }
-</script>
-
 </body>
 </html>
