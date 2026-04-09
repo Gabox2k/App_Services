@@ -30,7 +30,6 @@
     nav .cta { background: var(--accent); color: #0d0f14; padding: 9px 22px; border-radius: 100px; font-weight: 700; }
     nav .cta:hover { opacity: .85; }
 
-    
     header {
       min-height: 100vh; display: flex; flex-direction: column;
       align-items: center; justify-content: center; text-align: center;
@@ -55,7 +54,6 @@
       color: var(--muted); font-size: 1.05rem; line-height: 1.75;
     }
 
-    
     .search {
       display: flex; max-width: 540px; margin: 40px auto 0;
       background: var(--card); border: 1px solid var(--border); border-radius: 100px;
@@ -73,7 +71,6 @@
       font-weight: 700; font-size: .88rem; cursor: pointer;
     }
 
-    
     .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
     .btn { padding: 14px 32px; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: .95rem; transition: all .2s; }
     .btn-primary { background: var(--accent); color: #0d0f14; box-shadow: 0 4px 20px rgba(245,166,35,.3); }
@@ -81,7 +78,6 @@
     .btn-outline { border: 1px solid var(--border); color: var(--text); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    
     .stats {
       display: flex; gap: 48px; justify-content: center; flex-wrap: wrap;
       margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border);
@@ -90,7 +86,6 @@
     .stats li strong { display: block; font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent); }
     .stats li span { color: var(--muted); font-size: .83rem; }
 
-   
     section { max-width: 1200px; margin: 0 auto; padding: 88px 48px; }
     section > p.tag {
       display: inline-block; background: rgba(232,80,58,.1);
@@ -102,7 +97,6 @@
     section > h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 40px; }
     section > h2 span { color: var(--accent); }
 
-    
     .cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
     .cats a {
       background: var(--card); border: 1px solid var(--border);
@@ -157,7 +151,6 @@
     .view { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
     .view:hover { border-color: var(--accent); color: var(--accent); }
 
-    
     .how { background: var(--surface); padding: 88px 0; }
     .how > * { max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 48px; }
     .how h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 800; letter-spacing: -1px; }
@@ -169,7 +162,6 @@
     .steps li strong { display: block; font-family: 'Syne', sans-serif; font-size: 1rem; margin-bottom: 8px; }
     .steps li p { color: var(--muted); font-size: .88rem; line-height: 1.7; }
 
-    
     .testis { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
     blockquote {
       background: var(--card); border: 1px solid var(--border); border-radius: 16px;
@@ -187,7 +179,6 @@
     blockquote cite span { font-weight: 600; font-size: .88rem; display: block; }
     blockquote cite small { color: var(--muted); font-size: .78rem; }
 
-    
     .cta {
       text-align: center; padding: 88px 24px;
       background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(245,166,35,.07) 0%, transparent 70%);
@@ -195,7 +186,6 @@
     .cta h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem,5vw,3.2rem); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; }
     .cta p { color: var(--muted); max-width: 420px; margin: 0 auto 36px; line-height: 1.7; }
 
-    
     footer {
       border-top: 1px solid var(--border); padding: 36px 48px;
       display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
@@ -207,7 +197,6 @@
     footer ul a { color: var(--muted); font-size: .83rem; text-decoration: none; }
     footer ul a:hover { color: var(--accent); }
 
-    
     .ham { display: none; background: none; border: none; font-size: 1.5rem; color: var(--text); cursor: pointer; }
     .mob { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
     .mob.open { display: flex; }
@@ -224,17 +213,22 @@
       .stats { gap: 28px; }
       .how > * { padding: 0 20px; }
     }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+      header h1 em {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
 
 <nav>
   <strong>Servicios<span> Asuncion</span></strong>
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="proveedores.html">Proveedores</a></li>
-    <li><a href="como_funciona.html">Cómo funciona?</a></li>
-  </ul>
   <a href="#" class="cta" onclick="document.querySelector('.mob').classList.toggle('open')">Explorar</a>
   <button class="ham" onclick="document.querySelector('.mob').classList.toggle('open')">☰</button>
 </nav>

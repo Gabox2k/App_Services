@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Como funciona?</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como funciona?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg:#0d0f14; --surface:#161a23; --card:#1c2130; --accent:#f5a623; --accent2:#e8503a; --text:#f0eee8; --muted:#7a8099; --border:#2a2f3e; }
     body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); }
@@ -29,9 +29,9 @@
       background:radial-gradient(ellipse 70% 70% at 50% 0%,rgba(245,166,35,.1) 0%,transparent 70%);
     }
     header p.tag { display:inline-block; background:rgba(232,80,58,.1); color:var(--accent2); border:1px solid rgba(232,80,58,.2); padding:4px 14px; border-radius:100px; font-size:.73rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px; }
-    header h1 { font-family:'Syne',sans-serif; font-size:clamp(2.4rem,7vw,5rem); font-weight:800; letter-spacing:-2px; line-height:1.05; }
+    header h1 { font-family:'Syne',sans-serif; font-size:clamp(2.4rem,7vw,5rem); font-weight:800; letter-spacing:-2px; line-height:1.05; margin-bottom:18px; }
     header h1 span { color:var(--accent); }
-    header > p { color:var(--muted); max-width:500px; margin:18px auto 0; font-size:1rem; line-height:1.75; }
+    header > p { color:var(--muted); max-width:500px; margin:0 auto; font-size:1rem; line-height:1.75; }
 
     /* SHARED */
     .wrap { max-width:1100px; margin:0 auto; padding:0 48px; }
@@ -53,46 +53,7 @@
     ol.timeline > li > article aside { margin-top:14px; background:rgba(245,166,35,.07); border-left:3px solid var(--accent); padding:11px 14px; border-radius:0 8px 8px 0; color:var(--muted); font-size:.83rem; line-height:1.6; }
     ol.timeline > li > article aside strong { color:var(--accent); }
 
-    /* TRUST */
-    section.trust { padding:80px 0; }
-    ul.trust-grid { list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:18px; margin-top:40px; }
-    ul.trust-grid li { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:26px 22px; text-align:center; }
-    ul.trust-grid li i { font-size:1.9rem; font-style:normal; display:block; margin-bottom:12px; }
-    ul.trust-grid li strong { display:block; font-family:'Syne',sans-serif; font-weight:700; margin-bottom:7px; }
-    ul.trust-grid li p { color:var(--muted); font-size:.83rem; line-height:1.6; }
-
-    /* TIPS */
-    div.tips { background:var(--surface); padding:80px 0; }
-    ul.tips-grid { list-style:none; display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:18px; margin-top:40px; }
-    ul.tips-grid li { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; }
-    ul.tips-grid li mark { display:inline-block; padding:3px 10px; border-radius:100px; font-size:.69rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin-bottom:12px; background:none; }
-    .do { background:rgba(45,212,191,.1); color:#2dd4bf; border:1px solid rgba(45,212,191,.22); }
-    .dont { background:rgba(232,80,58,.1); color:var(--accent2); border:1px solid rgba(232,80,58,.22); }
-    ul.tips-grid li h4 { font-family:'Syne',sans-serif; font-weight:700; margin-bottom:7px; }
-    ul.tips-grid li p { color:var(--muted); font-size:.86rem; line-height:1.65; }
-
-    /* FAQ */
-    section.faq { padding:80px 0; }
-    ul.faq-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:40px; }
-    ul.faq-list li { background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-    ul.faq-list li button { width:100%; text-align:left; background:none; border:none; color:var(--text); padding:20px 22px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:.93rem; display:flex; justify-content:space-between; align-items:center; cursor:pointer; transition:color .2s; }
-    ul.faq-list li button:hover { color:var(--accent); }
-    ul.faq-list li button span { transition:transform .3s; }
-    ul.faq-list li button.open span { transform:rotate(45deg); }
-    ul.faq-list li p { max-height:0; overflow:hidden; transition:max-height .35s ease; padding:0 22px; color:var(--muted); font-size:.88rem; line-height:1.75; }
-    ul.faq-list li p.open { max-height:200px; padding-bottom:18px; }
-
-    /* CTA */
-    section.cta { padding:88px 24px; text-align:center; }
-    section.cta h2 { font-family:'Syne',sans-serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:800; letter-spacing:-1.5px; margin-bottom:16px; }
-    section.cta p { color:var(--muted); max-width:420px; margin:0 auto 36px; line-height:1.7; }
-    nav.cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-    .btn { padding:14px 32px; border-radius:100px; text-decoration:none; font-weight:700; font-size:.95rem; transition:all .2s; display:inline-block; }
-    .primary { background:var(--accent); color:#0d0f14; }
-    .primary:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(245,166,35,.35); }
-    .outline { border:1px solid var(--border); color:var(--text); }
-    .outline:hover { border-color:var(--accent); color:var(--accent); }
-
+    /* CTA y footer */
     footer { border-top:1px solid var(--border); padding:36px 48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
     footer strong a { font-family:'Syne',sans-serif; color:var(--accent); text-decoration:none; font-size:1.1rem; }
     footer strong a span { color:var(--text); }
@@ -101,14 +62,26 @@
     footer ul a { color:var(--muted); font-size:.83rem; text-decoration:none; }
     footer ul a:hover { color:var(--accent); }
 
+    /* MEDIA QUERIES */
     @media(max-width:768px){
-      nav{padding:16px 20px} nav ul{display:none} .ham{display:block}
-      .wrap{padding:0 20px} ul.faq-list{grid-template-columns:1fr}
-      ol.timeline::before{left:24px} ol.timeline > li > b{width:48px}
+      nav{padding:16px 20px} 
+      nav ul{display:none} 
+      .ham{display:block}
+      .wrap{padding:0 20px} 
+      ul.faq-list{grid-template-columns:1fr}
+      ol.timeline::before{left:24px} 
+      ol.timeline > li{gap:18px}
+      ol.timeline > li > b{width:48px}
       ol.timeline > li > b em{width:38px;height:38px;font-size:.85rem}
+      ol.timeline > li > article{padding:18px}
+      ol.timeline > li > article h3{font-size:1rem}
+      ol.timeline > li > article p{font-size:.85rem}
+      header{padding:110px 20px 60px}
+      header h1{font-size:2.2rem}
+      header > p{font-size:.9rem}
       footer{padding:24px 20px;flex-direction:column;text-align:center}
     }
-    </style>
+  </style>
 </head>
 <body>
 
@@ -132,6 +105,7 @@
 
 <header>
   <p class="tag">Guia completa</p>
+  <h1>Como funciona <span>Servicios Asuncion</span></h1>
   <p>Todo lo que necesitas saber para encontrar, contratar y calificar proveedores</p>
 </header>
 
@@ -146,15 +120,15 @@
       </li>
       <li>
         <b><em>2</em></b>
-          <article><i>📊</i><h3>Compara calificaciones y reseñas</h3><p>Cada perfil tiene su calificacion promedio, cantidad de reseñas y comentarios de personas</p></article>
+        <article><i>📊</i><h3>Compara calificaciones y reseñas</h3><p>Cada perfil tiene su calificacion promedio, cantidad de reseñas y comentarios de personas</p></article>
       </li>
       <li>
         <b><em>3</em></b>
-          <article><i>📞</i><h3>Llamas directo sin intermediarios</h3><p>Marcas directamen al proveedor</p></article>
+        <article><i>📞</i><h3>Llamas directo sin intermediarios</h3><p>Marcas directamen al proveedor</p></article>
       </li>
       <li>
         <b><em>4</em></b>
-          <article><i>⭐</i><h3>Calificas y ayudas a la comunidad</h3><p>Deja tu reseña. Tu opinion ayuda a todos los vecinos de Asuncion</p></article>
+        <article><i>⭐</i><h3>Calificas y ayudas a la comunidad</h3><p>Deja tu reseña. Tu opinion ayuda a todos los vecinos de Asuncion</p></article>
       </li>
     </ol>
   </div>
@@ -168,6 +142,7 @@
     <li><a href="proveedores.html">Proveedores</a></li>
     <li><a href="como_funciona.html">Como funciona?</a></li>
   </ul>
-</footer> 
+</footer>
+
 </body>
 </html>

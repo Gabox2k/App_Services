@@ -93,6 +93,23 @@
     .wp { background: rgba(37,211,102,.1); color: #25d366; border: 1px solid rgba(37,211,102,.25); }
     .wp:hover { background: #25d366; color: #fff; }
 
+    .search {
+      display: flex; max-width: 400px; margin: 40px auto 0;
+      background: var(--card); border: 1px solid var(--border); border-radius: 100px;
+      overflow: hidden; transition: border-color .2s;
+    }
+    .search:focus-within { border-color: var(--accent); }
+    .search input {
+      flex: 1; background: none; border: none; outline: none;
+      padding: 10px 22px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: .93rem;
+    }
+    .search input::placeholder { color: var(--muted); }
+    .search button {
+      background: var(--accent); border: none; color: #0d0f14;
+      padding: 7px 26px; margin: 4px; border-radius: 100px;
+      font-weight: 700; font-size: .88rem; cursor: pointer;
+    }
+
     /* ADD FORM */
     section#agregar { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
     section#agregar h2 { font-family: 'Syne', sans-serif; font-size: 1.7rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 6px; }
@@ -127,12 +144,59 @@
     footer ul a { color: var(--muted); font-size: .83rem; text-decoration: none; }
     footer ul a:hover { color: var(--accent); }
 
-    @media (max-width: 768px) {
-      nav ul { display: none; }
-      nav, header, .filtros, main, section#agregar { padding-left: 20px; padding-right: 20px; }
-      form { grid-template-columns: 1fr; }
-      footer { padding: 24px 20px; flex-direction: column; text-align: center; }
-    }
+  .mob {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.mob.open {
+  display: flex;
+}
+
+.mob a {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.mob a:hover { color: var(--accent); }
+
+.mob button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+  .ham {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    .ham { display: block; } /* ✅ gana porque viene después */
+    nav, header, .filtros, main, section#agregar { padding-left: 20px; padding-right: 20px; }
+    form { grid-template-columns: 1fr; }
+    footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+  }
   </style>
 </head>
 <body>
@@ -143,12 +207,25 @@
     <li><a href="index.html">Inicio</a></li>
     <li><a href="proveedores.html">Proveedores</a></li>
     <li><a href="como_funciona.html">Cómo funciona?</a></li>
-    <li><a href="#agregar">Registrarme</a></li>
   </ul>
+  <button class="ham" onclick="document.querySelector('.mob').classList.toggle('open')">☰</button>
 </nav>
+
+<nav class="mob">
+  <button onclick="document.querySelector('.mob').classList.remove('open')">✕</button>
+  <a href="index.html">Inicio</a>
+  <a href="proveedores.html">Proveedores</a>
+  <a href="como_funciona.html">Cómo funciona?</a>
+</nav>
+
 
 <header>
   <h1>Proveedores de <span>Servicios en Asunción</span></h1>
+
+   <form class="search" onsubmit="buscar(event)">
+    <input id="q" type="text" placeholder="¿Qué servicio buscás?" />
+    <button type="submit">Buscar</button>
+  </form>
 </header>
 
 
@@ -303,7 +380,7 @@ filtros.forEach(f => {
     // Quitar clase 'on' de todos
     filtros.forEach(btn => btn.classList.remove('on'));
 
-    // Activar el que se clickeó
+    // Activar el que se clickeo
     f.classList.add('on');
 
     // Obtener categoría
