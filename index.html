@@ -4,7 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Servicios Asuncion</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+
+  <noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet">
+</noscript>
+
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -13,7 +27,13 @@
       --text: #f0eee8; --muted: #7a8099; --border: #2a2f3e;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+     body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background: var(--bg);
+      color: var(--text);
+    }
 
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
@@ -240,96 +260,98 @@
   <a href="como_funciona.html">Cómo funciona?</a>
 </nav>
 
-<header>
-  <h1>Encontra el mejor servicio<br /><em>con mejor ranking</em> de la ciudad</h1>
+</main>
+  <header>
+    <h1>Encontra el mejor servicio<br /><em>con mejor ranking</em> de la ciudad</h1>
 
-  <form class="search" onsubmit="buscar(event)">
-    <input id="q" type="text" placeholder="¿Qué servicio buscás?" />
-    <button type="submit">Buscar</button>
-  </form>
+    <form class="search" onsubmit="buscar(event)">
+      <input id="q" type="text" placeholder="¿Qué servicio buscás?" />
+      <button type="submit">Buscar</button>
+    </form>
 
-  <ul class="stats">
-    <li><strong>+240</strong><span>Proveedores verificados</span></li>
-    <li><strong>4.7★</strong><span>Calificacion promedio</span></li>
-    <li><strong>+1,800</strong><span>Reseñas reales</span></li>
-    <li><strong>18</strong><span>Categorias</span></li>
-  </ul>
-</header>
+    <ul class="stats">
+      <li><strong>+240</strong><span>Proveedores verificados</span></li>
+      <li><strong>4.7★</strong><span>Calificacion promedio</span></li>
+      <li><strong>+1,800</strong><span>Reseñas reales</span></li>
+      <li><strong>18</strong><span>Categorias</span></li>
+    </ul>
+  </header>
 
 
-<section>
-  <p class="tag">⭐ Top calificados</p>
-  <h2>Los mas <span>confiables</span> de Asunción</h2>
-  <ul class="cards">
-    <li>
-      <article class="card">
-        <figure>🔧<mark>TOP ★</mark></figure>
-        <section>
-          <header>
-            <div><h3>Carlos Mendoza </h3><p>Plomeria</p></div>
-            <p class="rating"><span class="s">★★★★★</span> <span class="n">4.9</span> <span class="c">(127)</span></p>
-          </header>
-          <p>📍 Villa Morra · Disponible hoy</p>
-          <footer>
-            <a href="tel:+595 981 000001" class="call">Llamar</a>
-            <a href="proveedores.html" class="view">Ver perfil</a>
-          </footer>
-        </section>
-      </article>
-    </li>
-    <li>
-      <article class="card">
-        <figure>⚡<mark style="background:#2dd4bf;">NUEVA</mark></figure>
-        <section>
-          <header>
-            <div><h3>Romina Rodriguez</h3><p>Electricidad</p></div>
-            <p class="rating"><span class="s">★★★★★</span> <span class="n">4.8</span> <span class="c">(89)</span></p>
-          </header>
-          <p>📍 Mariscal López ·  10 años de exp.</p>
-          <footer>
-            <a href="tel:+595 981 000002" class="call">Llamar</a>
-            <a href="proveedores.html" class="view">Ver perfil</a>
-          </footer>
-        </section>
-      </article>
-    </li>
-    <li>
-      <article class="card">
-        <figure>🎨</figure>
-        <section>
-          <header>
-            <div><h3>Adolf</h3><p>Pintura</p></div>
-            <p class="rating"><span class="s">★★★★☆</span> <span class="n">4.6</span> <span class="c">(64)</span></p>
-          </header>
-          <p>📍 San Lorenzo ·  Garantia</p>
-          <footer>
-            <a href="tel:+595 981 000003" class="call">Llamar</a>
-            <a href="proveedores.html" class="view">Ver perfil</a>
-          </footer>
-        </section>
-      </article>
-    </li>
-  </ul>
-  <p style="text-align:center; margin-top:40px;"><a href="proveedores.html" class="btn btn-primary">Ver todos →</a></p>
-</section>
+  <section>
+    <p class="tag">⭐ Top calificados</p>
+    <h2>Los mas <span>confiables</span> de Asunción</h2>
+    <ul class="cards">
+      <li>
+        <article class="card">
+          <figure>🔧<mark>TOP ★</mark></figure>
+          <section>
+            <header>
+              <div><h3>Carlos Mendoza </h3><p>Plomeria</p></div>
+              <p class="rating"><span class="s">★★★★★</span> <span class="n">4.9</span> <span class="c">(127)</span></p>
+            </header>
+            <p>📍 Villa Morra · Disponible hoy</p>
+            <footer>
+              <a href="tel:+595 981 000001" class="call">Llamar</a>
+              <a href="proveedores.html" class="view">Ver perfil</a>
+            </footer>
+          </section>
+        </article>
+      </li>
+      <li>
+        <article class="card">
+          <figure>⚡<mark style="background:#2dd4bf;">NUEVA</mark></figure>
+          <section>
+            <header>
+              <div><h3>Romina Rodriguez</h3><p>Electricidad</p></div>
+              <p class="rating"><span class="s">★★★★★</span> <span class="n">4.8</span> <span class="c">(89)</span></p>
+            </header>
+            <p>📍 Mariscal López ·  10 años de exp.</p>
+            <footer>
+              <a href="tel:+595 981 000002" class="call">Llamar</a>
+              <a href="proveedores.html" class="view">Ver perfil</a>
+            </footer>
+          </section>
+        </article>
+      </li>
+      <li>
+        <article class="card">
+          <figure>🎨</figure>
+          <section>
+            <header>
+              <div><h3>Adolf</h3><p>Pintura</p></div>
+              <p class="rating"><span class="s">★★★★☆</span> <span class="n">4.6</span> <span class="c">(64)</span></p>
+            </header>
+            <p>📍 San Lorenzo ·  Garantia</p>
+            <footer>
+              <a href="tel:+595 981 000003" class="call">Llamar</a>
+              <a href="proveedores.html" class="view">Ver perfil</a>
+            </footer>
+          </section>
+        </article>
+      </li>
+    </ul>
+    <p style="text-align:center; margin-top:40px;"><a href="proveedores.html" class="btn btn-primary">Ver todos →</a></p>
+  </section>
 
-<div class="how">
-  <p class="tag" style="margin-bottom:12px;">Cómo funciona?</p>
-  <h2>Sin vueltas, <span>sin sorpresas</span></h2>
-  <ol class="steps">
-    <li><em>01</em><i>🔍</i><strong>Busca tu servicio</strong><p>Filtra por categoria, zona o calificacion.</p></li>
-    <li><em>02</em><i>⭐</i><strong>Comparas reseñas reales</strong><p>Opiniones de personas de Asuncion.</p></li>
-    <li><em>03</em><i>📞</i><strong>Llamas directo</strong><p></p></li>
-    <li><em>04</em><i>✅</i><strong>Calificas el trabajo</strong><p>Tu reseña ayuda a otras personas a encontrar</p></li>
-  </ol>
-  <p style="text-align:center; margin-top:48px;"><a href="como_funciona.html" class="btn btn-outline">Ver guia completa</a></p>
-</div>
+  <div class="how">
+    <p class="tag" style="margin-bottom:12px;">Cómo funciona?</p>
+    <h2>Sin vueltas, <span>sin sorpresas</span></h2>
+    <ol class="steps">
+      <li><em>01</em><i>🔍</i><strong>Busca tu servicio</strong><p>Filtra por categoria, zona o calificacion.</p></li>
+      <li><em>02</em><i>⭐</i><strong>Comparas reseñas reales</strong><p>Opiniones de personas de Asuncion.</p></li>
+      <li><em>03</em><i>📞</i><strong>Llamas directo</strong><p></p></li>
+      <li><em>04</em><i>✅</i><strong>Calificas el trabajo</strong><p>Tu reseña ayuda a otras personas a encontrar</p></li>
+    </ol>
+    <p style="text-align:center; margin-top:48px;"><a href="como_funciona.html" class="btn btn-outline">Ver guia completa</a></p>
+  </div>
 
-<div class="cta">
-  <h2>Sos proveedor de servicios?</h2>
-  <p>Registra tu negocio y conecta con miles clientes en Asuncion</p>
-  <a href="proveedores.html#agregar" class="btn btn-primary">Registrar mi negocio</a>
-</div>
+  <div class="cta">
+    <h2>Sos proveedor de servicios?</h2>
+    <p>Registra tu negocio y conecta con miles clientes en Asuncion</p>
+    <a href="proveedores.html#agregar" class="btn btn-primary">Registrar mi negocio</a>
+  </div>
+<main>
 
 <footer>
   <strong>Servicion <span> Asuncion</span></strong>
