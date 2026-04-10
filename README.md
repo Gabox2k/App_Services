@@ -90,3 +90,26 @@ serviasuncion/
 - CSS3 nativo (variables, grid, flexbox, animaciones)
 - JavaScript vanilla (sin frameworks)
 - Google Fonts: Syne + DM Sans
+
+---
+
+## 🚀 Optimización de rendimiento (Lighthouse)
+
+Se realizaron mejoras para optimizar **Core Web Vitals** y accesibilidad detectadas por Lighthouse.
+
+### 1️⃣ Eliminación de solicitudes que bloquean renderizado
+
+Se optimizó la carga de **Google Fonts** para evitar que bloqueen el renderizado inicial de la página.
+
+Antes las fuentes se cargaban de forma normal, lo que retrasaba el **LCP (Largest Contentful Paint)**.
+
+Ahora se utilizan:
+
+- `preconnect` para abrir conexión anticipada con Google Fonts
+- `display=swap` para evitar saltos de diseño (CLS)
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
