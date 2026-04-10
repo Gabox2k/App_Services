@@ -93,22 +93,23 @@
     .wp { background: rgba(37,211,102,.1); color: #25d366; border: 1px solid rgba(37,211,102,.25); }
     .wp:hover { background: #25d366; color: #fff; }
 
-    .search {
-      display: flex; max-width: 400px; margin: 40px auto 0;
-      background: var(--card); border: 1px solid var(--border); border-radius: 100px;
-      overflow: hidden; transition: border-color .2s;
-    }
-    .search:focus-within { border-color: var(--accent); }
-    .search input {
-      flex: 1; background: none; border: none; outline: none;
-      padding: 10px 22px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: .93rem;
-    }
-    .search input::placeholder { color: var(--muted); }
-    .search button {
-      background: var(--accent); border: none; color: #0d0f14;
-      padding: 7px 26px; margin: 4px; border-radius: 100px;
-      font-weight: 700; font-size: .88rem; cursor: pointer;
-    }
+    .search{ display:flex; max-width:400px; width:100%;
+      margin:40px auto 0; background:var(--card); border:1px solid var(--border);
+      border-radius:100px; overflow:hidden;
+      transition:border-color .2s;}
+
+    .search:focus-within{border-color:var(--accent);}
+
+    .search input{ flex:1; background:none; border:none;
+      outline:none; padding:12px 20px; color:var(--text);
+      font-family:'DM Sans',sans-serif; font-size:.93rem; }
+
+    .search input::placeholder{ color:var(--muted); }
+
+    .search button{ background:var(--accent); border:none;
+        color:#0d0f14; padding:10px 22px; margin:4px;
+        border-radius:100px; font-weight:700;
+        font-size:.88rem; cursor:pointer; }
 
     /* ADD FORM */
     section#agregar { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
@@ -191,12 +192,38 @@
   }
 
   @media (max-width: 768px) {
-    nav ul { display: none; }
-    .ham { display: block; } /* ✅ gana porque viene después */
-    nav, header, .filtros, main, section#agregar { padding-left: 20px; padding-right: 20px; }
-    form { grid-template-columns: 1fr; }
-    footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+  nav ul { display: none; }
+  .ham { display: block; }
+
+  nav, header, .filtros, main, section#agregar {
+    padding-left: 20px;
+    padding-right: 20px;
   }
+
+  form { grid-template-columns: 1fr; }
+
+  footer {
+    padding: 24px 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* BUSCADOR RESPONSIVE */
+  .search{
+    max-width:100%;
+    margin-top:25px;
+  }
+
+  .search input{
+    padding:10px 14px;
+    font-size:.85rem;
+  }
+
+  .search button{
+    padding:8px 14px;
+    font-size:.8rem;
+  }
+}
   </style>
 </head>
 <body>
