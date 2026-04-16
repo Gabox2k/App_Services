@@ -113,3 +113,10 @@ Ahora se utilizan:
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+### Mejora la accesibiliada con main
+
+Se agregó un punto de referencia principal (<main>) para mejorar la navegación de lectores de pantalla.
+
+Esto permite que herramientas de accesibilidad identifiquen el contenido principal de la página.
