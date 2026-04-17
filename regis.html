@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proveedores – Servicios Asuncion</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #0d0f14; --surface: #161a23; --card: #1c2130;
       --accent: #f5a623; --text: #f0eee8; --muted: #7a8099; --border: #2a2f3e;
@@ -112,13 +111,14 @@
         font-size:.88rem; cursor:pointer; }
 
     /* ADD FORM */
-    section#agregar { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
+    section#agregar { max-width: 1200px; margin: 120px 0 auto; padding: 0 48px 80px; }
     section#agregar h2 { font-family: 'Syne', sans-serif; font-size: 1.7rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 6px; }
     section#agregar > p { color: var(--muted); margin-bottom: 24px; }
     form {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 20px; padding: 32px;
       display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 660px;
+      margin: 0 auto;
     }
     form .full { grid-column: 1/-1; }
     label { display: flex; flex-direction: column; gap: 6px; font-size: .8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
@@ -224,53 +224,64 @@
     font-size:.8rem;
   }
 }
-  </style>
+    </style>
 </head>
 <body>
 
-<nav>
-  <strong><a href="index.html">Servicios<span> Asuncion</span></a></strong>
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="proveedores.html">Proveedores</a></li>
-    <li><a href="como_funciona.html">Cómo funciona?</a></li>
-    <li><a href="regis.html">Registrarme</a></li>
-  </ul>
-  <button class="ham" onclick="document.querySelector('.mob').classList.toggle('open')">☰</button>
-</nav>
+    <nav>
+    <strong><a href="index.html">Servicios<span> Asuncion</span></a></strong>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="proveedores.html">Proveedores</a></li>
+        <li><a href="como_funciona.html">Cómo funciona?</a></li>
+        <li><a href="regis.html">Registrarme</a></li>
+    </ul>
+    <button class="ham" onclick="document.querySelector('.mob').classList.toggle('open')">☰</button>
+    </nav>
 
-<nav class="mob">
-  <button onclick="document.querySelector('.mob').classList.remove('open')">✕</button>
-  <a href="index.html">Inicio</a>
-  <a href="proveedores.html">Proveedores</a>
-  <a href="como_funciona.html">Cómo funciona?</a>
-</nav>
-
-
-<header>
-  <h1>Proveedores de <span>Servicios en Asunción</span></h1>
-
-   <form class="search" onsubmit="buscar(event)">
-    <input id="q" type="text" placeholder="¿Qué servicio buscás?" />
-    <button type="submit">Buscar</button>
-  </form>
-</header>
+    <nav class="mob">
+    <button onclick="document.querySelector('.mob').classList.remove('open')">✕</button>
+    <a href="index.html">Inicio</a>
+    <a href="proveedores.html">Proveedores</a>
+    <a href="como_funciona.html">Cómo funciona?</a>
+    </nav>
 
 
-<main>
-<!-- Filtros por categoria -->
-<div class="filtros">
-  <a href="proveedores.html">Todos</a>
-  <a href="#plomeria">🔧 Plomería</a>
-  <a href="#electricidad">⚡ Electricidad</a>
-  <a href="#pintura">🎨 Pintura</a>
-</div>
+    <!--Formulario de registro-->
+    <section id="agregar">
+    <h2>Sos proveedor?</h2>
+    <p>Registra tu servicio gratis</p>
+    <form id="formProveedor">
+        <label class="full">
+        Nombre completo
+        <input type="text" name="nombre" placeholder="Ej: Camilo Rodriguez" required />
+        </label>
+        <label>
+        Categoria
+        <select name="categoria" required>
+            <option value="">Selecciona</option>
+            <option>Plomeria</option>
+            <option>Electricidad</option>
+            <option>Pintura</option>
+        </select>
+        </label>
+        <label>
+        Telefono
+        <input type="tel" name="telefono" placeholder="+595 9XX XXX XXX" required />
+        </label>
+        <label>
+        Zona
+        <input type="text" name="zona" placeholder="Ej: Villa Morra" />
+        </label>
+        <label class="full">
+        Descripcion breve
+        <textarea name="descripcion" placeholder="Tu experiencia y especialidad"></textarea>
+        </label>
+        <button type="submit">Enviar solicitud</button>
+    </form>
+    </section>
 
-  <ul id="proveedores-grid" class="grid"></ul>
-  <p id="estado" style="text-align:center; margin-top:40px; color: var(--muted); font-size:1rem;"></p>
-</main>
-
-<footer>
+  <footer>
   <strong><a href="index.html" style="font-family:'Syne',sans-serif;color:var(--accent);text-decoration:none">Servicios<span style="color:var(--text)">Asuncion</span></a></strong>
   <p>© 2025 Servicios Asuncion · Paraguay 🇵🇾</p>
   <ul>
@@ -279,113 +290,7 @@
   </ul>
 </footer>
 
-<script>
-const proveedoresGrid = document.getElementById('proveedores-grid');
-const estado = document.getElementById('estado');
-const filtros = document.querySelectorAll('.filtros a');
-
-let proveedores = []; //Guarda a los proveedores 
-
-//Elimna al proveedor
-function eliminarProveedor(boton, telefono ,categoria){
-
-  //Elimina del array
-  proveedores = proveedores.filter(p => p.telefono !== telefono)
-
-  const targeta = boton.closest('li')
-  targeta.remove()
-
-  //Verificar si quedan proveedores
-  const quedan = proveedores.filter(p => p.categoria === categoria)
-
-  if(quedan.length === 0){
-    estado.textContent= "🚫 No hay proveedores disponibles "
-  }
-}
-
-
-
-//Genera las estrellas
-function generarEstrellas(rating){
-  const max = 5
-  let estrellas = ''
-  for (let i =1; i <=max; i++){
-    estrellas += i <= rating ? '★' : '☆'
-  }
-
-  return estrellas
-}
-
-//Mostrar a los proveedores segun el filtro
-function mostrarProveedores(categoria) {
-  let listaFiltrada = categoria && categoria !== 'Todos'
-    ? proveedores.filter(p => p.categoria.toLowerCase() === categoria.toLowerCase())
-    : proveedores;
-
-  if (!listaFiltrada.length) {
-    proveedoresGrid.innerHTML = '';
-    estado.textContent = "🚫 No hay proveedores disponibles";
-    return;
-  }
-
-  estado.textContent = ""; // Limpiar mensaje
-
-  proveedoresGrid.innerHTML = listaFiltrada.map(p => `
-    <li>
-      <article class="card">
-        <figure>${p.categoria === "Plomería" ? "🔧" : p.categoria === "Electricidad" ? "⚡" : "🎨"}${p.top ? '<mark>TOP ★</mark>' : ''}</figure>
-        <div class="body">
-          <div class="row">
-            <div><h3>${p.nombre}</h3><p class="cat">${p.categoria}</p></div>
-            <p class="stars">${generarEstrellas(p.rating)} <b>${p.rating}</b> <small>(${p.reviews})</small></p>
-          </div>
-          <p class="meta">📍 ${p.ubicacion}</p>
-          <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
-          <div class="btns">
-            <a href="tel:${p.telefono}" class="call" onclick="eliminarProveedor(this, '${p.telefono}' ,'${p.categoria}')">📞 Llamar</a>
-          </div>
-        </div>
-      </article>
-    </li>
-  `).join("");
-}
-
-// Cargar datos del JSON
-estado.textContent = "⏳ Cargando proveedores...";
-fetch("proveedores.json")
-  .then(res => {
-    if (!res.ok) throw new Error("No se pudo cargar el JSON");
-    return res.json();
-  })
-  .then(datos => {
-    proveedores = datos; // Guardamos todos los proveedores
-    mostrarProveedores('Todos'); // Mostrar todos al inicio
-  })
-  .catch(err => {
-    console.error(err);
-    estado.textContent = "❌ Error al cargar proveedores";
-  });
-
-// Eventos para los filtros
-filtros.forEach(f => {
-  f.addEventListener('click', e => {
-    e.preventDefault();
-
-    // Quitar clase 'on' de todos
-    filtros.forEach(btn => btn.classList.remove('on'));
-
-    // Activar el que se clickeo
-    f.classList.add('on');
-
-    // Obtener categoría
-    let categoria = f.textContent.replace(/🔧|⚡|🎨/g, '').trim();
-    if (categoria === "Todos") categoria = 'Todos';
-
-    mostrarProveedores(categoria);
-  });
-});
-</script>
-
-
 </body>
 </html>
+
+
